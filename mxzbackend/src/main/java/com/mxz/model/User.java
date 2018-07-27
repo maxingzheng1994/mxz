@@ -2,15 +2,28 @@ package com.mxz.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
 *@Description 
 *@author mxz
 *2018-07-27
 **/
+@Entity
+@Table(name = "User")
 public class User {
 
+    @Id
+    @GeneratedValue
     private Long pkId;
+    
+    @Column(nullable = true,length = 20)
     private String userName;
+    @Column(nullable = true,length = 20)
     private String password;
     private String email;
     private String firstName;

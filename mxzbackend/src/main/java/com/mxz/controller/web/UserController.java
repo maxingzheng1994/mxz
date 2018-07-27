@@ -14,8 +14,8 @@ import com.mxz.model.User;
 @RequestMapping("user")
 @RestController
 public class UserController {
-	@GetMapping("/hello")
-	public User hello() {
-		return new User("11","22");
-	}
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
 }
