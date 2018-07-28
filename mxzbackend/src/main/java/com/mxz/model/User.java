@@ -14,9 +14,9 @@ import javax.persistence.Table;
 *2018-07-27
 **/
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User {
-
+    
     @Id
     @GeneratedValue
     private Long pkId;
@@ -34,6 +34,13 @@ public class User {
     private Date lastModifiedDate;
     private Long lastModifiedBy;
     
+    public User(String userName, String password, String email, String firstName) {
+        super();
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+    }
     public Long getPkId() {
         return pkId;
     }

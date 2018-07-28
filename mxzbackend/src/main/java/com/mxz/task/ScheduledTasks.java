@@ -15,18 +15,17 @@ import org.springframework.stereotype.Component;
 *@author mxz
 *2018-07-26
 **/
+
 @Component
 public class ScheduledTasks {
 	private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 	
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("HH:mm:ss");
 	
-	@Autowired
-	public CommandLineRunner commandLineRunner;
 	
-	@Scheduled(fixedRate = 5000)
+	//@Scheduled(fixedRate = 5000)
 	public void reportCurrentTime() throws Exception {
 		log.info("this time {}",DATE_FORMAT.format(new Date()));
 	}
-	
 }
+
