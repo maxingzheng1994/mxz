@@ -27,7 +27,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class ApiLogAspect {
     /**切面点*/
-    private final String POINT_CUT = "execution(public * com.mxz.controller.*.*(..)) and @annotation(org.springframework.web.bind.annotation.RequestMapping)";
+    private final String POINT_CUT = "execution(public * com.mxz.controller.web.*.*(..)) and @annotation(org.springframework.web.bind.annotation.RequestMapping)";
     @Pointcut(POINT_CUT)  
     public void webApiLog(){}
     

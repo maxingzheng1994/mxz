@@ -154,7 +154,9 @@ public ConfigurableApplicationContext run(String... args) {
  */
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.mxz.dao.UserRepository;
@@ -169,7 +171,8 @@ import com.mxz.util.listener.ApplicationEnvironmentPreparedListener;
  *  可配置  监听器  或者 setListener
  *
  */
-@SpringBootApplication
+@SpringBootApplication(exclude=DataSourceAutoConfiguration.class)
+@EnableAspectJAutoProxy
 @EnableScheduling
 public class Application {
 
