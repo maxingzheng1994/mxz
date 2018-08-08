@@ -16,4 +16,9 @@ public class UserController {
     public String hello() {
         return "hello";
     }
+    
+    @GetMapping("/error")
+    public int error() {
+        return 1/0;
+    }
 }
