@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -44,7 +46,15 @@ public class ApiLogAspect {
     }
     
     @AfterThrowing("webApiLog()") 
-    public void throwsE(JoinPoint joinPoint) {
+    public void doThrow(JoinPoint joinPoint) {
         print("have exception");
+    }
+    
+    @Around("webApiLog()")
+    public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
+        print("+++++++++++++++++++++++++++++++++++++++++");
+        Object result = pjp.proceed();
+        print(result.toString());
+        return result;
     }
 }

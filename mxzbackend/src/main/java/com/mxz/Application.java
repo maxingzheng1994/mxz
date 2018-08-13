@@ -166,6 +166,7 @@ import com.mxz.util.listener.ApplicationEnvironmentPreparedListener;
 /**
  * @SpringBootApplication 注释
  *  @EnableAutoConfiguration  借助 @Import 收集注册特定bean 自动 去spring.factories下寻找
+ *  @EnableAspectJAutoProxy  proxyTargetClass 默认代理模式使用cglib还是
  *  @EnableScheduling 是将spring调度相关的bean定义到IOc容器中 
  *  loadSpringFactories  下加载  META-INF/spring.factories
  *  可配置  监听器  或者 setListener
