@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://193.112.244.115:3306/mb2019?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
+    username: root
+    password: 'root'
+#配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: 'false'
+    show-sql: 'true'
+
+# section for mybatis configuration setting
+mybatis:
+  mapperLocations: classpath*:mapper/*Mapper.xml
+  typeAliasesPackage: com.mxz.model
+  type-handlers-package: com.mxz.common.dao.mybatis.typehandler
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+##pagehelper分页插件
+#pagehelper:
+#    helperDialect: postgresql
+#    reasonable: true
+#    supportMethodsArguments: true
+#    params: count=countSql
+#
+## 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+#mybatis-plus:
