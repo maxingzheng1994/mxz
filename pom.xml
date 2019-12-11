@@ -106,10 +106,25 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<!--fork : 如果没有该项配置，肯定devtools不会起作用，即应用不会restart -->
+			<!--	<configuration>
+					&lt;!&ndash;fork : 如果没有该项配置，肯定devtools不会起作用，即应用不会restart &ndash;&gt;
 					<fork>true</fork>
-				</configuration>
+				</configuration>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                        <configuration>
+                            <additionalProperties>
+                                <encoding.source>${project.build.sourceEncoding}</encoding.source>
+                                <encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
+                                <java.source>${maven.compiler.source}</java.source>
+                                <java.target>${maven.compiler.target}</java.target>
+                            </additionalProperties>
+                        </configuration>
+                    </execution>
+                </executions>
 			</plugin>
 
             <!-- 跳过单元测试 -->
@@ -134,44 +149,44 @@
             <!--</plugin>-->
             
             <!-- Docker maven plugin -->
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>1.0.0</version>
+			<!--<plugin>-->
+				<!--<groupId>com.spotify</groupId>-->
+				<!--<artifactId>docker-maven-plugin</artifactId>-->
+				<!--<version>1.0.0</version>-->
 
-                <!--将插件绑定在某个phase执行-->
-                <executions>
-                    <execution>
-                        <id>build-image</id>
-                        <!--用户只需执行mvn package ，就会自动执行mvn docker:build-->
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <!--&lt;!&ndash;将插件绑定在某个phase执行&ndash;&gt;-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>build-image</id>-->
+                        <!--&lt;!&ndash;用户只需执行mvn package ，就会自动执行mvn docker:build&ndash;&gt;-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>build</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
 
-				<configuration>
-                    <!--指定生成的镜像名-->
-					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <!--指定标签-->
-                    <imageTags>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <!-- 指定 Dockerfile 路径-->
-					<dockerDirectory>src/main/docker</dockerDirectory>
-                    <!--指定远程 docker api地址-->
-                    <dockerHost>http://193.112.244.115:2375</dockerHost>
-                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-					</resources>
-				</configuration>
-			</plugin>
+				<!--<configuration>-->
+                    <!--&lt;!&ndash;指定生成的镜像名&ndash;&gt;-->
+					<!--<imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
+                    <!--&lt;!&ndash;指定标签&ndash;&gt;-->
+                    <!--<imageTags>-->
+                        <!--<imageTag>latest</imageTag>-->
+                    <!--</imageTags>-->
+                    <!--&lt;!&ndash; 指定 Dockerfile 路径&ndash;&gt;-->
+					<!--<dockerDirectory>src/main/docker</dockerDirectory>-->
+                    <!--&lt;!&ndash;指定远程 docker api地址&ndash;&gt;-->
+                    <!--<dockerHost>http://193.112.244.115:2375</dockerHost>-->
+                    <!--&lt;!&ndash; 这里是复制 jar 包到 docker 容器指定目录配置 &ndash;&gt;-->
+					<!--<resources>-->
+						<!--<resource>-->
+							<!--<targetPath>/</targetPath>-->
+							<!--<directory>${project.build.directory}</directory>-->
+							<!--<include>${project.build.finalName}.jar</include>-->
+						<!--</resource>-->
+					<!--</resources>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 			<!-- Docker maven plugin -->
 		</plugins>
 	</build>
