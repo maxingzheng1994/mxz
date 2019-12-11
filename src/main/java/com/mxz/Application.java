@@ -148,13 +148,17 @@ public ConfigurableApplicationContext run(String... args) {
  *  ApplicationCont创建完成之后  加载所有ApplicationContextIntializer 处理context  listener 再操作一遍   
  *  将EnableAuto加载到IOc容器的bean 加载到context中  refresh  执行CommandLineRunner  finished
  */
+
+import com.mxz.model.Location;
+import com.mxz.service.LocationRepository;
+import com.mxz.util.listener.ApplicationEnvironmentPreparedListener;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-        import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
-        import com.mxz.util.listener.ApplicationEnvironmentPreparedListener;
 
 /**
  * @SpringBootApplication 注释
@@ -175,6 +179,16 @@ public class Application {
 	    application.addListeners(new ApplicationEnvironmentPreparedListener());
 	    application.run(args);
 	}
+
+//    @Bean
+//    InitializingBean saveData(LocationRepository repo){
+//        return ()->{
+//            repo.save(new Location((long) 1,"1",38.998064, 117.317267));
+//            repo.save(new Location((long)2,"2",38.997793, 117.317069));
+//            repo.save(new Location((long)3,"3",38.998006, 117.317101));
+//            repo.save(new Location((long)4,"4",38.997814, 117.317332));
+//        };
+//    }
 	
 }
 

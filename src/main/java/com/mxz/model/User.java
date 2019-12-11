@@ -1,7 +1,6 @@
 package com.mxz.model;
 
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
@@ -11,7 +10,7 @@ import java.io.Serializable;
  * @Author mxz
  */
 @Data
-@Document(collection = "user")
+//@Document(collection = "user")
 public class User implements Serializable {
     private static final long serialVersionUID = -7257487638617643262L;
 

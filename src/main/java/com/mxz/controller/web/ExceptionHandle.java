@@ -16,7 +16,7 @@ public class ExceptionHandle {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public String handleException(HttpServletResponse response, Exception exception) {
-        return "error";
+    public Exception handleException(HttpServletResponse response, Exception exception) {
+        return exception;
     }
 }
