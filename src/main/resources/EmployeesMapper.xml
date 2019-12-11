@@ -13,7 +13,7 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select
             EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, SALARY
-        from LOUIS.EMPLOYEES
+        from EMPLOYEES
         where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
     </select>
 </mapper>

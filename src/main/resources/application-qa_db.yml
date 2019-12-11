@@ -15,6 +15,9 @@ spring:
         temp:
           use_jdbc_metadata_defaults: 'false'
     show-sql: 'true'
+  data:
+    mongodb:
+      uri: mongodb+srv://root:root@cluster0-tpq1p.mongodb.net/test?retryWrites=true&w=majority
 
 # section for mybatis configuration setting
 mybatis:

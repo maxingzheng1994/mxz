@@ -1,13 +1,16 @@
 package com.mxz;
 
+import com.mxz.model.Employee;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Description
@@ -19,6 +22,17 @@ public class MainTest {
         InputStream inputStream = Resources.getResourceAsStream("mybatisConfig.xml");
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(inputStream);
+        // DefaultSqlSessionFactory
         SqlSession sqlSession = factory.openSession();
+
+        //3.使用SqlSession查询
+        Map<String,Object> params = new HashMap<String,Object>();
+
+        params.put("employeeId",100);
+        //a.查询工资低于10000的员工
+        // DefaultSqlSession
+        List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey",params);
+
+        System.out.println("薪资低于10000的员工数："+result.size());
     }
 }
