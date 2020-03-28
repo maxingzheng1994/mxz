@@ -28,10 +28,10 @@ public class MainTest {
         //3.使用SqlSession查询
         Map<String,Object> params = new HashMap<String,Object>();
 
-        params.put("employeeId",100);
+        params.put("employeeId","100");
         //a.查询工资低于10000的员工
         // DefaultSqlSession
-        List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey",params);
+        List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey2",params);
 
         System.out.println("薪资低于10000的员工数："+result.size());
     }

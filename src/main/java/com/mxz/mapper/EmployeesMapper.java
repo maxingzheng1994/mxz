@@ -11,5 +11,7 @@ import java.util.List;
  */
 public interface EmployeesMapper {
 
-    public List<Employee> selectByPrimaryKey(Integer employeeId);
+    public List<Employee> selectByPrimaryKey(Integer employeeId, String name);
+
+    public List<Employee> selectByPrimaryKey2(String employeeId, String name);
 }

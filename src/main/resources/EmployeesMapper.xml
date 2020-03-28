@@ -16,4 +16,11 @@
         from EMPLOYEES
         where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
     </select>
+
+    <select id="selectByPrimaryKey2" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+            EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, SALARY
+        from EMPLOYEES
+        where FIRST_NAME = #{employeeId}
+    </select>
 </mapper>
