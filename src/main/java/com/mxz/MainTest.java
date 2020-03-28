@@ -29,7 +29,7 @@ public class MainTest {
         Map<String,Object> params = new HashMap<String,Object>();
 
         params.put("employeeId","100");
-        //a.查询工资低于10000的员工
+        //a.查询工资低于10000的员工11
         // DefaultSqlSession
         List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey2",params);
 
