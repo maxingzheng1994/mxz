@@ -1,14 +1,14 @@
 spring:
   datasource:
-    url: jdbc:h2:~/test
-    driver-class-name: org.h2.Driver
-    username: root
-    password: 123456
-#    driverClassName: com.mysql.jdbc.Driver
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    url: jdbc:mysql://193.112.244.115:3306/mb2019?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
+#    url: jdbc:h2:~/test
+#    driver-class-name: org.h2.Driver
 #    username: root
-#    password: 'root'
+#    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/attendance?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
+    username: root
+    password: 'root'
 #配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
   jpa:
     hibernate:
@@ -20,10 +20,10 @@ spring:
 #          use_jdbc_metadata_defaults: 'false'
 #    show-sql: 'true'
 #    database: h2
-  h2:
-    console:
-      path: /h2-console
-      enabled: true
+#  h2:
+#    console:
+#      path: /h2-console
+#      enabled: true
 #  data:
 #    mongodb:
 #      uri: mongodb+srv://root:root@cluster0-tpq1p.mongodb.net/test?retryWrites=true&w=majority
@@ -31,7 +31,7 @@ spring:
 # section for mybatis configuration setting
 mybatis:
   mapperLocations: classpath*:mapper/*Mapper.xml
-  typeAliasesPackage: com.mxz.model
+#  typeAliasesPackage: com.mxz.model
   type-handlers-package: com.mxz.common.dao.mybatis.typehandler
   configuration:
     map-underscore-to-camel-case: true

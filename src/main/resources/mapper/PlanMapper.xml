@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mxz.plan.mapper.PlanMapper">
+  <resultMap id="BaseResultMap" type="com.mxz.plan.model.Plan">
+    <!--@mbg.generated generated on Thu Apr 02 17:14:14 CST 2020.-->
+    <!--@Table `plan`-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="during_time" jdbcType="TIMESTAMP" property="duringTime" />
+    <result column="times" jdbcType="TIMESTAMP" property="times" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="over_time" jdbcType="TIMESTAMP" property="overTime" />
+    <result column="stop_time" jdbcType="TIMESTAMP" property="stopTime" />
+    <result column="create_id" jdbcType="INTEGER" property="createId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Apr 02 17:14:14 CST 2020.-->
+    id, `name`, during_time, times, start_time, update_time, over_time, stop_time, create_id
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated generated on Thu Apr 02 17:14:14 CST 2020.-->
+    update `plan`
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`name` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="during_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.duringTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="times = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.times,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="start_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.startTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.updateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="over_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.overTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="stop_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.stopTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="create_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.createId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated generated on Thu Apr 02 17:14:14 CST 2020.-->
+    insert into `plan`
+    (id, `name`, during_time, times, start_time, update_time, over_time, stop_time, create_id
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=INTEGER}, #{item.name,jdbcType=VARCHAR}, #{item.duringTime,jdbcType=TIMESTAMP}, 
+        #{item.times,jdbcType=TIMESTAMP}, #{item.startTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}, 
+        #{item.overTime,jdbcType=TIMESTAMP}, #{item.stopTime,jdbcType=TIMESTAMP}, #{item.createId,jdbcType=INTEGER}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.mxz.plan.model.Plan">
+    <!--@mbg.generated generated on Thu Apr 02 17:14:14 CST 2020.-->
+    insert into `plan`
+    (id, `name`, during_time, times, start_time, update_time, over_time, stop_time, create_id
+      )
+    values
+    (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{duringTime,jdbcType=TIMESTAMP}, 
+      #{times,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{overTime,jdbcType=TIMESTAMP}, #{stopTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}
+      )
+    on duplicate key update 
+    id = #{id,jdbcType=INTEGER}, 
+    `name` = #{name,jdbcType=VARCHAR}, 
+    during_time = #{duringTime,jdbcType=TIMESTAMP}, 
+    times = #{times,jdbcType=TIMESTAMP}, 
+    start_time = #{startTime,jdbcType=TIMESTAMP}, 
+    update_time = #{updateTime,jdbcType=TIMESTAMP}, 
+    over_time = #{overTime,jdbcType=TIMESTAMP}, 
+    stop_time = #{stopTime,jdbcType=TIMESTAMP}, 
+    create_id = #{createId,jdbcType=INTEGER}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.mxz.plan.model.Plan">
+    <!--@mbg.generated generated on Thu Apr 02 17:14:14 CST 2020.-->
+    insert into `plan`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="duringTime != null">
+        during_time,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="overTime != null">
+        over_time,
+      </if>
+      <if test="stopTime != null">
+        stop_time,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="duringTime != null">
+        #{duringTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overTime != null">
+        #{overTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopTime != null">
+        #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="duringTime != null">
+        during_time = #{duringTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overTime != null">
+        over_time = #{overTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopTime != null">
+        stop_time = #{stopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

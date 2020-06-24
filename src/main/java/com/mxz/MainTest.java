@@ -24,15 +24,14 @@ public class MainTest {
         SqlSessionFactory factory = builder.build(inputStream);
         // DefaultSqlSessionFactory
         SqlSession sqlSession = factory.openSession();
-
         //3.使用SqlSession查询
         Map<String,Object> params = new HashMap<String,Object>();
-
-        params.put("employeeId","100");
-        //a.查询工资低于10000的员工1122ddddddddd
-        // DefaultSqlSession
-        List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey2",params);
-
-        System.out.println("薪资低于10000的员工数："+result.size());
+        sqlSession.commit();
+//        params.put("employeeId","100");
+//        //a.查询工资低于10000的员工1122ddddddddd
+//        // DefaultSqlSession
+//        List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey2",params);
+//
+//        System.out.println("薪资低于10000的员工数："+result.size());
     }
 }

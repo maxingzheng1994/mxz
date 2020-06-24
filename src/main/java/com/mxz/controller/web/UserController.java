@@ -2,9 +2,6 @@ package com.mxz.controller.web;
 
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.mxz.common.advice.aspect.HumenService;
-import com.mxz.dao.JsonUtil;
-import com.mxz.model.ImBody;
-import com.mxz.model.ImCallBackBody;
 import com.mxz.model.Location;
 import com.mxz.model.User;
 import com.mxz.service.LocationRepository;
@@ -76,17 +73,6 @@ public class UserController {
     
     @GetMapping("/error")
     public int error() {
-        return 1/0;
-    }
-
-
-    @PostMapping("/imcallback")
-    public int imcallback(HttpServletRequest request, ImBody imBody, @RequestBody String jsonString) {
-        ImCallBackBody imCallBackBody = JsonUtil.jsonToObject(jsonString, ImCallBackBody.class);
-        String to_account = imCallBackBody.getTo_Account();
-        System.out.println( imCallBackBody);
-        Map<String, String[]> parameterMap = request.getParameterMap();
-        System.out.println(parameterMap);
         return 1/0;
     }
 

@@ -152,6 +152,7 @@ public ConfigurableApplicationContext run(String... args) {
 import com.mxz.model.Location;
 import com.mxz.service.LocationRepository;
 import com.mxz.util.listener.ApplicationEnvironmentPreparedListener;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
