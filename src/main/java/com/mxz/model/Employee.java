@@ -1,8 +1,11 @@
 package com.mxz.model;
  
+
 import java.math.BigDecimal;
- 
+
 public class Employee {
+    private Integer id;
+
     private Integer employeeId;
  
     private String firstName;
@@ -12,7 +15,23 @@ public class Employee {
     private String email;
  
     private BigDecimal salary;
- 
+
+    public Employee(Integer employeeId, String firstName, String lastName, String email, BigDecimal salary) {
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.salary = salary;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Integer getEmployeeId() {
         return employeeId;
     }

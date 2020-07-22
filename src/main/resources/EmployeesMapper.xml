@@ -3,24 +3,55 @@
 <mapper namespace="com.mxz.mapper.EmployeesMapper" >
 
     <resultMap id="BaseResultMap" type="com.mxz.model.Employee" >
-        <id column="EMPLOYEE_ID" property="employeeId" jdbcType="DECIMAL" />
-        <result column="FIRST_NAME" property="firstName" jdbcType="VARCHAR" />
-        <result column="LAST_NAME" property="lastName" jdbcType="VARCHAR" />
-        <result column="EMAIL" property="email" jdbcType="VARCHAR" />
-        <result column="SALARY" property="salary" jdbcType="DECIMAL" />
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="employee_id" property="employeeId" jdbcType="INTEGER" />
+        <result column="first_name" property="firstName" jdbcType="VARCHAR" />
+        <result column="last_name" property="lastName" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="salary" property="salary" jdbcType="DECIMAL" />
     </resultMap>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select
-            EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, SALARY
-        from EMPLOYEES
-        where EMPLOYEE_ID = #{employeeId,jdbcType=DECIMAL}
+            employee_id, first_name, last_name, email, salary
+        from employee
+        where employee_id = #{employeeId,jdbcType=DECIMAL}
     </select>
 
     <select id="selectByPrimaryKey2" resultMap="BaseResultMap" parameterType="java.lang.String" >
         select
-            EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, SALARY
-        from EMPLOYEES
-        where FIRST_NAME = #{employeeId}
+            employee_id, first_name, last_name, email, salary
+        from employee
+        where first_name = #{employeeId}
     </select>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, employee_id, first_name, last_name, email, salary
+    </sql>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into employee
+        (employee_id, first_name, last_name, email, salary)
+        values
+        <foreach collection="list" item="item" separator=",">
+            ( #{item.employeeId,jdbcType=INTEGER}, #{item.firstName,jdbcType=VARCHAR},
+            #{item.lastName,jdbcType=VARCHAR}, #{item.email,jdbcType=VARCHAR}, #{item.salary,jdbcType=DECIMAL}
+            )
+        </foreach>
+    </insert>
+    <insert id="insert">
+        insert into employee
+            (employee_id, first_name, last_name, email, salary)
+        values ( #{employeeId,jdbcType=INTEGER}, #{firstName,jdbcType=VARCHAR},
+        #{lastName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{salary,jdbcType=DECIMAL}
+        )
+    </insert>
+
+    <insert id="insert2">
+        insert into tb_wechat_extra_branch_bank
+        (n_branch_id, c_branch_name)
+        values ( #{nBranchId,jdbcType=VARCHAR}, #{cBranchName,jdbcType=VARCHAR}
+        )
+    </insert>
 </mapper>
