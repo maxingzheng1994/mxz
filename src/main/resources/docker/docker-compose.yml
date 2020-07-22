@@ -1,0 +1,8 @@
+version: '2'
+services:
+  mxz:
+    network_mode: "bridge"
+    image: "mxz/mb25:latest"
+    restart: always
+    ports:
+      - "8086:8086"
