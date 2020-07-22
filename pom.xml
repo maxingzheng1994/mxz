@@ -181,16 +181,16 @@
             <!--</plugin>-->
 
             <!-- Docker maven plugin -->
-            <plugin>
+            <!--<plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
 
-                <!--将插件绑定在某个phase执行-->
+                &lt;!&ndash;将插件绑定在某个phase执行&ndash;&gt;
                 <executions>
                     <execution>
                         <id>build-image</id>
-                        <!--用户只需执行mvn package ，就会自动执行mvn docker:build-->
+                        &lt;!&ndash;用户只需执行mvn package ，就会自动执行mvn docker:build&ndash;&gt;
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>
@@ -199,17 +199,17 @@
                 </executions>
 
                 <configuration>
-                    <!--指定生成的镜像名-->
+                    &lt;!&ndash;指定生成的镜像名&ndash;&gt;
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <!--指定标签-->
+                    &lt;!&ndash;指定标签&ndash;&gt;
                     <imageTags>
                         <imageTag>latest</imageTag>
                     </imageTags>
-                    <!-- 指定 Dockerfile 路径-->
+                    &lt;!&ndash; 指定 Dockerfile 路径&ndash;&gt;
                     <dockerDirectory>src/main/docker</dockerDirectory>
-                    <!--指定远程 docker api地址-->
+                    &lt;!&ndash;指定远程 docker api地址&ndash;&gt;
                     <dockerHost>http://47.107.117.17:2375</dockerHost>
-                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
+                    &lt;!&ndash; 这里是复制 jar 包到 docker 容器指定目录配置 &ndash;&gt;
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -218,7 +218,7 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <!-- Docker maven plugin -->
         </plugins>
     </build>
