@@ -1,17 +1,11 @@
 package com.mxz.controller.web;
 
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.mxz.common.advice.aspect.HumenService;
-import com.mxz.model.Location;
 import com.mxz.model.User;
-import com.mxz.service.LocationRepository;
 import com.mxz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.Map;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
 *@Description 
@@ -19,6 +13,7 @@ import java.util.Map;
 *2018-07-26
 **/
 @RestController
+@RequestMapping("/user")
 public class UserController {
    
     @Autowired
@@ -65,8 +60,8 @@ public class UserController {
 //    }
 
     @GetMapping("")
-    public List<User> getUser(User user) {
-        return null;
+    public ModelAndView getUser(User user) {
+        return new ModelAndView("index");
 //        Query query = Query.query(Criteria.where("username").is(user.getUsername()));
 //        return mongoTemplate.find(query, User.class);
     }

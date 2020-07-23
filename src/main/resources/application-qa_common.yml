@@ -1,2 +1,10 @@
 server:
   port: 8086
+
+#spring:
+#  mvc:
+#    view:
+#      suffix: .html
+#    static-path-pattern: /**
+#  resources:
+#    static-locations: classpath:/templates/,classpath:/static/
