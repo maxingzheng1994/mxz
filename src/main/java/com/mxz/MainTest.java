@@ -1,6 +1,5 @@
 package com.mxz;
 
-import com.mxz.branchBank.model.TbWechatExtraBranchBank;
 import com.mxz.model.Employee;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -33,9 +32,6 @@ public class MainTest {
 //        // DefaultSqlSession
         List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey2",params);
         Employee employee = new Employee(23, "", "", "", new BigDecimal(232));
-        TbWechatExtraBranchBank tbWechatExtraBranchBank = new TbWechatExtraBranchBank(null, "sd", "sds");
-        sqlSession.insert("com.mxz.mapper.EmployeesMapper.insert2",tbWechatExtraBranchBank);
-//
         sqlSession.commit();
         System.out.println("薪资低于10000的员工数："+result.size());
     }

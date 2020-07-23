@@ -1,6 +1,5 @@
 package com.mxz.excel;
 
-import com.mxz.branchBank.model.TbWechatExtraBranchBank;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -31,7 +30,6 @@ public class DemoDAO {
 //        SqlSession sqlSession = factory.openSession();
 
         for (DemoData demoData : list) {
-            TbWechatExtraBranchBank tbWechatExtraBranchBank = new TbWechatExtraBranchBank(null, demoData.getId(), demoData.getAddress());
             s ++;
 //            s.add(tbWechatExtraBranchBank);
 //            sqlSession.insert("com.mxz.mapper.EmployeesMapper.insert2",tbWechatExtraBranchBank);

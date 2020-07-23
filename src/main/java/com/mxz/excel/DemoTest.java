@@ -2,7 +2,6 @@
 package com.mxz.excel;
 
 import com.alibaba.excel.EasyExcel;
-import com.mxz.branchBank.model.TbWechatExtraBranchBank;
 
 import java.io.File;
 
