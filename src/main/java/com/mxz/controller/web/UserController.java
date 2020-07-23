@@ -4,7 +4,12 @@ import com.mxz.common.advice.aspect.HumenService;
 import com.mxz.model.User;
 import com.mxz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -12,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 *@author mxz
 *2018-07-26
 **/
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
    
@@ -28,6 +33,12 @@ public class UserController {
 //
 //    @Autowired
 //    private MongoTemplate mongoTemplate;
+
+    @GetMapping("/user")
+    public String user(Model model) {
+        model.addAttribute("uid", "asdasdas");
+        return "index";
+    }
 
     @GetMapping("/hello")
     public String hello() {

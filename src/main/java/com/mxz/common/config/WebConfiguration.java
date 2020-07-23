@@ -13,17 +13,18 @@ package com.mxz.common.config;
  */
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
-    @Override
+  /*  @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController( "/" ).setViewName( "forward:/index.html" );
-        registry.addViewController( "/index" ).setViewName( "forward:/index.html" );
+        registry.addViewController( "/" ).setViewName( "forward:/html/index.html" );
+        registry.addViewController( "/index" ).setViewName( "forward:/html/index.html" );
         registry.setOrder( Ordered.HIGHEST_PRECEDENCE );
         WebMvcConfigurer.super.addViewControllers(registry);
     }
-
+*/
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+//        registry.addResourceHandler("/templates/**").addResourceLocations("/templates/");
     }
 }
 
