@@ -13,16 +13,16 @@ public class ApplicationEnvironmentPreparedListener implements ApplicationListen
     
     @Override
     public void onApplicationEvent(ApplicationEnvironmentPreparedEvent event) {
-        Environment env = event.getEnvironment();
-        System.out.println("时区设置成功");
-        this.setTimezone(env);
+//        Environment env = event.getEnvironment();
+//        System.out.println("时区设置成功");
+//        this.setTimezone(env);
     }
 
     private void setTimezone(Environment env){
-        String timeZone = env.getProperty(SPRING_APPLICATION_TIME_ZONE_KEY);
-        if(StringUtils.isEmpty(timeZone)){
-            timeZone = DEFAULT_TIME_ZONE;
-        }
-        System.setProperty(TIME_ZONE_KEY, timeZone);
+//        String timeZone = env.getProperty(SPRING_APPLICATION_TIME_ZONE_KEY);
+//        if(StringUtils.isEmpty(timeZone)){
+//            timeZone = DEFAULT_TIME_ZONE;
+//        }
+//        System.setProperty(TIME_ZONE_KEY, timeZone);
     }
 }
