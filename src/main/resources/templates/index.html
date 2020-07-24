@@ -4,10 +4,76 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@shoelace-style/shoelace@2.0.0-beta.8/dist/shoelace/shoelace.css">
+<script type="module" src="https://unpkg.com/@shoelace-style/shoelace@2.0.0-beta.8/dist/shoelace/shoelace.esm.js"></script>
+
 <body>
     距离见2阿范还有是<p th:text="''+${day} + '天'"/>
     <p th:text="''+${hour} + '时'"/>
     <p th:text="''+${minute} + '分'"/>
     <p th:text="''+${seconds} + '秒'"/>
+    <sl-button>Click me</sl-button>
+    <h2 th:object="${user}">
+        <p>Name: <span th:text="*{username}">Jack</span>.</p>
+        <p>Age: <span th:text="*{age}">21</span>.</p>
+    </h2>
+    <sl-button disabled>Click me</sl-button>
+    <sl-color-picker></sl-color-picker>
+
+    <script>
+        const colorPicker = document.querySelector('sl-color-picker');
+        colorPicker.swatches = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+    </script>
+
+    <sl-checkbox>Check me</sl-checkbox>
+
+    <script>
+        const checkbox = document.querySelector('sl-checkbox');
+        checkbox.addEventListener('slChange', event => {
+            console.log(event.target.checked ? 'checked' : 'not checked');
+        });
+    </script>
+
+    <sl-input></sl-input>
+
+    <script>
+        const input = document.querySelector('sl-input');
+        input.setFocus();
+    </script>
+
+    <sl-button>
+        <sl-icon slot="prefix" name="gear"></sl-icon>
+        Settings
+    </sl-button>
+
+    <sl-button class="tomato-button">
+        Tomato Button
+    </sl-button>
+
+    <style>
+        .tomato-button::part(base) {
+            background: white;
+            border: solid 1px tomato;
+        }
+
+        .tomato-button::part(base):hover {
+            background: rgba(255, 99, 71, .1);
+        }
+
+        .tomato-button::part(base):active {
+            background: rgba(255, 99, 71, .2);
+        }
+
+        .tomato-button::part(base):focus {
+            box-shadow: 0 0 0 3px rgba(255, 99, 71, .33);
+        }
+
+        .tomato-button::part(label) {
+            color: tomato;
+        }
+    </style>
+
 </body>
 </html>

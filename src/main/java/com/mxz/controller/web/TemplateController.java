@@ -1,5 +1,6 @@
 package com.mxz.controller.web;
 
+import com.mxz.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,10 @@ public class TemplateController {
         model.addAttribute("hour", between.toHours());
         model.addAttribute("minute", between.toMinutes());
         model.addAttribute("seconds", between.toMillis());
+        User user = new User();
+        user.setAge(121);
+        user.setUsername("docke");
+        model.addAttribute("user",user);
         return "index";
     }
 }
