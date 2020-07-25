@@ -1,3 +1,4 @@
+/*
 package com.mxz.model;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -7,11 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Timestamp;
 
+*/
 /**
  * @Description
  * @Date 2019/10/29 17:03
  * @Author mxz
- */
+ *//*
+
 public class BaseVO {
 
     @Id
@@ -37,3 +40,4 @@ public class BaseVO {
         this.id = id;
     }
 }
+*/

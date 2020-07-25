@@ -1,7 +1,5 @@
 package com.mxz.task;
 
-import com.mxz.model.Location;
-import com.mxz.service.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

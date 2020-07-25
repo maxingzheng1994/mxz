@@ -9,13 +9,12 @@
                 <property name="driver" value="com.mysql.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql://192.168.1.144:3306/test" />
                 <property name="username" value="root" />
-                <property name="password" value="truedian#123" />
+                <property name="password" value="#123" />
             </dataSource>
         </environment>
     </environments>
     <mappers>
         <mapper  resource="EmployeesMapper.xml"/>
-        <mapper resource="mapper/TbWechatExtraBranchBankMapper.xml"/>
     </mappers>
 </configuration>
 

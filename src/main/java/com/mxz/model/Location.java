@@ -1,3 +1,4 @@
+/*
 package com.mxz.model;
 
 import lombok.AllArgsConstructor;
@@ -20,4 +21,4 @@ public class Location {
     private String type;
     private double latitude;
     private double longtitude;
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package com.mxz.model;
 
 import lombok.Data;
@@ -9,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+*/
 /**
 *@Description  
 *@author mxz
 *2018-07-28
-**/
+**//*
+
 @Entity
 @Table(name = "token")
 @Data
@@ -26,3 +29,4 @@ public class Token extends BaseVO {
     private Date expireDate;
      
 }
+*/

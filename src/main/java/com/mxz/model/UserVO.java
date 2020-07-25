@@ -1,3 +1,4 @@
+/*
 package com.mxz.model;
 
 import lombok.AllArgsConstructor;
@@ -13,11 +14,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+*/
 /**
 *@Description 
 *@author mxz
 *2018-07-27
-**/
+**//*
+
 @Entity
 @Table(name = "users")
 @Data
@@ -44,3 +47,4 @@ public class UserVO extends BaseVO {
         this.firstName = firstName;
     }
 }
+*/

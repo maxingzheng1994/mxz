@@ -6,13 +6,14 @@ spring:
 #    password: 123456
     driverClassName: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/attendance?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
+    url: jdbc:mysql://192.168.1.144:3306/test?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
     username: root
-    password: 'root'
+    password: #123
 #配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
 #    properties:
 #      hibernate:
 #        dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -30,13 +31,14 @@ spring:
 
 # section for mybatis configuration setting
 mybatis:
-  mapperLocations: classpath*:mapper/*Mapper.xml
-#  typeAliasesPackage: com.mxz.model
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  typeAliasesPackage: com.mxz.model
   type-handlers-package: com.mxz.common.dao.mybatis.typehandler
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
     default-statement-timeout: 30
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 ##pagehelper分页插件
 #pagehelper:

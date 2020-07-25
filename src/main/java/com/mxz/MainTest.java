@@ -1,6 +1,5 @@
 package com.mxz;
 
-import com.mxz.model.Employee;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -30,9 +29,9 @@ public class MainTest {
         params.put("employeeId","100");
 //        //a.查询工资低于10000的员工1122ddddddddd
 //        // DefaultSqlSession
-        List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey2",params);
-        Employee employee = new Employee(23, "", "", "", new BigDecimal(232));
+//        List<Employee> result = sqlSession.selectList("com.mxz.mapper.EmployeesMapper.selectByPrimaryKey2",params);
+//        Employee employee = new Employee(23, "", "", "", new BigDecimal(232));
         sqlSession.commit();
-        System.out.println("薪资低于10000的员工数："+result.size());
+//        System.out.println("薪资低于10000的员工数："+result.size());
     }
 }
