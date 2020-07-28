@@ -5,4 +5,4 @@ services:
     image: "mxz/mb25:latest"
     restart: always
     ports:
-      - "8086:8086"
+      - "8086:8085"
