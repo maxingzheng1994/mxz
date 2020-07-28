@@ -165,7 +165,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  *  可配置  监听器  或者 setListener
  *
  */
-@SpringBootApplication
+@SpringBootApplication(exclude=DataSourceAutoConfiguration.class)
 @EnableAspectJAutoProxy
 @EnableScheduling
 @MapperScan("com.mxz.service.*.mapper")
