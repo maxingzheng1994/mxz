@@ -27,7 +27,7 @@ public class TemplateController {
         model.addAttribute("seconds", between.toMillis());
         User user = new User();
         user.setAge(121);
-        user.setUsername("docke");
+        user.setUsername("dock3333e");
         model.addAttribute("user",user);
         return "index";
     }
