@@ -1,9 +1,14 @@
 spring:
   datasource:
-    url: jdbc:h2:~/test
+    url: jdbc:h2:/data/mxz;AUTO_SERVER=TRUE
     driver-class-name: org.h2.Driver
-    username: root
-    password: 123456
+    username: sa
+    password: sa
+    initialization-mode: always
+    schema:
+      - classpath:db/schema.sql
+    data:
+      - classpath:db/data.sql
 #配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
   jpa:
     database: h2
@@ -20,8 +25,19 @@ spring:
 #    show-sql: 'true'
   h2:
     console:
-      path: /h2-console
+      path: /h2
       enabled: true
       settings:
         trace: true
         web-allow-others: true
+
+#mybatis:
+#  mapperLocations: classpath*:mapper/**/*Mapper.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    default-fetch-size: 100
+#    default-statement-timeout: 30
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml

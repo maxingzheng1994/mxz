@@ -1,6 +1,6 @@
 package com.mxz.common.dao.mybatis;
 
-import org.apache.commons.lang3.StringUtils;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;

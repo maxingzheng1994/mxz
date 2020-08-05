@@ -149,17 +149,22 @@ public ConfigurableApplicationContext run(String... args) {
  *  将EnableAuto加载到IOc容器的bean 加载到context中  refresh  执行CommandLineRunner  finished
  */
 
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.*;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.sql.DataSource;
 
 /**
  * @SpringBootApplication 注释
@@ -170,19 +175,31 @@ import org.springframework.web.bind.annotation.RestController;
  *  可配置  监听器  或者 setListener
  *
  */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@SpringBootApplication
 @EnableAspectJAutoProxy
 @EnableScheduling
 @ComponentScan(excludeFilters = {
         @ComponentScan.Filter( type = FilterType.REGEX, pattern = "com.mxz.service.plan.*")
 })
-//@MapperScan("com.mxz.service.*.mapper")
+@MapperScan("com.mxz.service.*.mapper")
 public class Application {
 
 	public static void main(String[] args) {
 	    SpringApplication application = new SpringApplication(Application.class);
 	    application.run(args);
 	}
+
+    @Bean("sqlSessionFactory")
+    @Primary
+    public SqlSessionFactory sqlSessionFactory(@Autowired @Qualifier("dataSource") DataSource dataSource) throws Exception {
+
+        MybatisSqlSessionFactoryBean sqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(dataSource);
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
+
+        return sqlSessionFactoryBean.getObject();
+
+    }
 
 //    @Bean
 //    InitializingBean saveData(LocationRepository repo){
