@@ -153,8 +153,13 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @SpringBootApplication 注释
@@ -165,10 +170,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  *  可配置  监听器  或者 setListener
  *
  */
-@SpringBootApplication(exclude=DataSourceAutoConfiguration.class)
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @EnableAspectJAutoProxy
 @EnableScheduling
-@MapperScan("com.mxz.service.*.mapper")
+@ComponentScan(excludeFilters = {
+        @ComponentScan.Filter( type = FilterType.REGEX, pattern = "com.mxz.service.plan.*")
+})
+//@MapperScan("com.mxz.service.*.mapper")
 public class Application {
 
 	public static void main(String[] args) {

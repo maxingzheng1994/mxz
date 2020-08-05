@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:~/test
+    driver-class-name: org.h2.Driver
+    username: root
+    password: 123456
+#配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
+  jpa:
+    database: h2
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        temp:
+#          use_jdbc_metadata_defaults: 'false'
+#    show-sql: 'true'
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        trace: true
+        web-allow-others: true
