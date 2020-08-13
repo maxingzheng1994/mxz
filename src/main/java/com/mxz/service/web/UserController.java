@@ -1,8 +1,6 @@
 package com.mxz.service.web;
 
-import com.mxz.common.advice.aspect.HumenService;
 import com.mxz.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

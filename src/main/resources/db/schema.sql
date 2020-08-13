@@ -9,3 +9,11 @@ create table if not exists PEOPLE_2 (
                                     CREATE_TIME DATE,
                                     MODIFY_TIME DATE,
                                     USE_STATE VARCHAR(1));
+
+
+
+create table  if not exists ARTICLE (
+    id int not null primary key auto_increment,
+    name varchar(100),
+    path varchar(400)
+)

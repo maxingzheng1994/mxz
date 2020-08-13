@@ -1,3 +1,4 @@
+/*
 package com.mxz.service.web;
 
 import com.mxz.model.User;
@@ -8,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+*/
 /**
  * 模板显示页面
  *
  * @author mxz on 2020/07/23 14:06
- */
+ *//*
+
 @Controller
 public class TemplateController {
 
@@ -32,3 +35,4 @@ public class TemplateController {
         return "index";
     }
 }
+*/

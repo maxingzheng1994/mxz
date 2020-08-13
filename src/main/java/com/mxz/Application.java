@@ -189,6 +189,7 @@ public class Application {
 	    application.run(args);
 	}
 
+	// 解决mybatis-plus 识别不到5
     @Bean("sqlSessionFactory")
     @Primary
     public SqlSessionFactory sqlSessionFactory(@Autowired @Qualifier("dataSource") DataSource dataSource) throws Exception {
