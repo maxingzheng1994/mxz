@@ -1,10 +1,80 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@shoelace-style/shoelace@2.0.0-beta.8/dist/shoelace/shoelace.css">
+<script type="module" src="https://unpkg.com/@shoelace-style/shoelace@2.0.0-beta.8/dist/shoelace/shoelace.esm.js"></script>
+
 <body>
-    <p><a href="/article/list"> mdList</a></p>
+还访问不到吗<p th:text="''+${day} + '天'"/>
+<p th:text="''+${hour} + '时'"/>
+<p th:text="''+${minute} + '分'"/>
+<p th:text="''+${seconds} + '秒'"/>
+<sl-button>Click me</sl-button>
+<h2 th:object="${user}">
+    <p>Name: <span th:text="*{username}">Jack</span>.</p>
+    <p>Age: <span th:text="*{age}">21</span>.</p>
+</h2>
+<sl-form class="form-overview">
+    <sl-input name="name" type="text" label="Name"></sl-input>
+    <br>
+    <sl-select name="favorite" label="Select your favorite">
+        <sl-menu-item value="birds">Birds</sl-menu-item>
+        <sl-menu-item value="cats">Cats</sl-menu-item>
+        <sl-menu-item value="dogs">Dogs</sl-menu-item>
+    </sl-select>
+    <br>
+    <sl-checkbox name="agree" value="yes">
+        I totally agree
+    </sl-checkbox>
+    <br><br>
+    <sl-button submit>Submit</sl-button>
+    <a href="/login/login.html">注册</a>
+</sl-form>
+
+<script>
+    const form = document.querySelector('.form-overview');
+
+    form.addEventListener('slSubmit', event => {
+        const formData = event.detail.formData;
+        let output = '';
+
+        //
+        // Example 1: Post data to a server and wait for a JSON response
+        //
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        //
+        // Example 2: Output all form control names + values
+        //
+        for (const entry of formData.entries()) {
+            output += `${entry[0]}: ${entry[1]}\n`;
+        }
+        alert(output);
+
+        //
+        // Example 3: Get all form controls that were serialized as
+        // an array of HTML elements
+        //
+        console.log(event.detail.formControls);
+    });
+</script>
+
+<p><a href="/article/list"> mdList</a></p>
 </body>
 </html>
