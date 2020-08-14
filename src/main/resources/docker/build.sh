@@ -5,4 +5,4 @@ docker rmi mxz/mb25;
 docker build -t mxz/mb25:latest .;
 docker-compose up -d;
 
-docker images|grep none|awk '{print $3}'|xargs docker rmi;
+#docker images|grep none|awk '{print $3}'|xargs docker rmi;
