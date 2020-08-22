@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">博客园_skywang12345</title>
-  <subtitle type="text"></subtitle>
-  <id>uuid:c9c3b80e-1388-4023-8377-e2d6a6b8e780;id=239</id>
-  <updated>2015-03-21T14:03:39Z</updated>
-  <author>
-    <name>如果天空不死</name>
-    <uri>http://www.cnblogs.com/skywang12345/</uri>
-  </author>
-  <generator>feed.cnblogs.com</generator>
   <entry>
     <id>http://www.cnblogs.com/skywang12345/p/3711532.html</id>
-    <title type="text">Fuck算法(三)之 Java详解 - 如果天空不死</title>
-    <summary type="text">前面分别通过C和C++实现了弗洛伊德算法，本文介绍弗洛伊德算法的Java实现。目录 1. 弗洛伊德算法介绍 2. 弗洛伊德算法图解 3. 弗洛伊德算法的代码说明 4. 弗洛伊德算法的源码 转载请注明出处：http://www.cnblogs.com/skywang12345/更多内容：数据结构与算....</summary>
-    <published>2014-05-28T01:35:00Z</published>
-    <updated>2014-05-28T01:35:00Z</updated>
-    <author>
-      <name>如果天空不死</name>
-      <uri>http://www.cnblogs.com/skywang12345/</uri>
-    </author>
-    <link rel="alternate" href="http://www.cnblogs.com/skywang12345/p/3711532.html" />
+    <title type="text">Fuck</title>
+<!--    <summary type="text">前面分别通过C和C++实现了弗洛伊德算法，本文介绍弗洛伊德算法的Java实现。目录 1. 弗洛伊德算法介绍 2. 弗洛伊德算法图解 3. 弗洛伊德算法的代码说明 4. 弗洛伊德算法的源码 转载请注明出处：http://www.cnblogs.com/skywang12345/更多内容：数据结构与算....</summary>-->
+      <!-- 图标 -->
     <link rel="alternate" type="text/html" href="http://www.cnblogs.com/skywang12345/p/3711532.html" />
-    <content type="html">【摘要】前面分别通过C和C++实现了弗洛伊德算法，本文介绍弗洛伊德算法的Java实现。目录 1. 弗洛伊德算法介绍 2. 弗洛伊德算法图解 3. 弗洛伊德算法的代码说明 4. 弗洛伊德算法的源码 转载请注明出处：http://www.cnblogs.com/skywang12345/更多内容：数据结构与算.... &lt;a href="http://www.cnblogs.com/skywang12345/p/3711532.html" target="_blank"&gt;阅读全文&lt;/a&gt;</content>
+      <content type="html">目录 1. 弗洛伊德算法介绍 2. 弗洛伊德算法图解 3. 弗洛伊德算法的代码说明 4. 弗洛伊德算法的源码 转载请注明出处：http://www.cnblogs.com/skywang12345/更多内容：数据结构与算.... &lt;a href="http://www.cnblogs.com/skywang12345/p/3711532.html" target="_blank"&gt;阅读全文&lt;/a&gt;</content>
   </entry>
 </feed>
