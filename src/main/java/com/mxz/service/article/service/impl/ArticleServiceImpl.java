@@ -29,7 +29,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Override
     public boolean init() {
-        File file = new File("D:\\mxz\\weiyun");
+        File file = new File("/data");
         ArrayList<File> files = new ArrayList<>();
         deepFiles(file,files);
         List<Article> articles = new ArrayList<>();

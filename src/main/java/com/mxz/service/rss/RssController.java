@@ -30,23 +30,23 @@ public class RssController {
             // 获得File对象，当然也可以获取输入流对象
             file = classPathResource.getFile();
         } catch (IOException e) {
-            e.printStackTrace();
         }
 
-        try {
-            ClassLoader classLoader = getClass().getClassLoader();
-            /**
-             getResource()方法会去classpath下找这个文件，获取到url resource, 得到这个资源后，调用url.getFile获取到 文件 的绝对路径
-             */
-            URL url = classLoader.getResource("demo");
-            file = new File(url.getFile());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        FileReader reader = new FileReader(file);
+//        try {
+//            ClassLoader classLoader = getClass().getClassLoader();
+//            /**
+//             getResource()方法会去classpath下找这个文件，获取到url resource, 得到这个资源后，调用url.getFile获取到 文件 的绝对路径
+//             */
+//            URL url = classLoader.getResource("demo");
+//            file = new File(url.getFile());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        InputStream input = getClass().getResourceAsStream("/demo");
+        InputStreamReader inputStreamReader = new InputStreamReader(input);
+//        FileReader reader = new FileReader(file);
         StringBuilder sb = new StringBuilder();
-        try (BufferedReader bufferedReader = new BufferedReader(reader)) {
+        try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line);
