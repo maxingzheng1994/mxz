@@ -8,7 +8,7 @@
 <span> <a th:href="" th:text=""></a></span>
 <table>
     <tr th:each="article : ${articles}">
-        <td><a th:href="/m/${article.id}" th:text="${article.name}"/></td>
+        <td><a th:href="${article.id}" th:text="${article.name}"/></td>
     </tr>
 </table>
 </body>
