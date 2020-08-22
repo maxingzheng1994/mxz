@@ -1,7 +1,6 @@
 package com.mxz.common.utils;
 
 import com.thoughtworks.xstream.XStream;
-import javafx.scene.control.TitledPane;
 
 import java.util.ArrayList;
 
