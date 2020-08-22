@@ -1,5 +1,6 @@
 package com.mxz.service.rss;
 
+import com.thoughtworks.xstream.XStream;
 import com.youbenzi.mdtool.tool.MDTool;
 import org.apache.ibatis.io.Resources;
 import org.springframework.core.io.ClassPathResource;
@@ -31,22 +32,28 @@ public class RssController {
             file = classPathResource.getFile();
         } catch (IOException e) {
         }
-
-//        try {
-//            ClassLoader classLoader = getClass().getClassLoader();
-//            /**
-//             getResource()方法会去classpath下找这个文件，获取到url resource, 得到这个资源后，调用url.getFile获取到 文件 的绝对路径
-//             */
-//            URL url = classLoader.getResource("demo");
-//            file = new File(url.getFile());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        InputStream input = getClass().getResourceAsStream("/demo");
+        InputStream input = getClass().getResourceAsStream("/rss/rss2.xml");
         InputStreamReader inputStreamReader = new InputStreamReader(input);
 //        FileReader reader = new FileReader(file);
         StringBuilder sb = new StringBuilder();
         try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line);
+            }
+        } catch (IOException e) {
+            // ... handle IO exception
+        }
+        //这句话的意思，是告诉servlet用UTF-8转码，而不是用默认的ISO8859
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(sb.toString());
+    }
+
+    @RequestMapping("/sky2")
+    public void sky2(String name, HttpServletResponse response) throws Exception {
+        FileReader reader = new FileReader("/data/"+name);
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line);
