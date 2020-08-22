@@ -35,6 +35,11 @@ public class ArticleController {
         model.addAttribute("articles", articleService.list());
         return "article/articles_list";
     }
+    @RequestMapping("/lists")
+    @ResponseBody
+    public List<Article> lists(Model model) {
+        return articleService.list();
+    }
 
     @RequestMapping("/listLimit/{path}")
     public boolean listLimit(Model model, @PathVariable(required = false) String path) {
@@ -54,6 +59,9 @@ public class ArticleController {
     @RequestMapping("/{id}")
     public void list(@PathVariable Integer id, HttpServletResponse response) throws IOException {
         Article article = articleService.getById(id);
+        if (article == null) {
+            return;
+        }
         FileReader reader = new FileReader(article.getPath());
         StringBuilder sb = new StringBuilder();
         try (BufferedReader bufferedReader = new BufferedReader(reader)) {
