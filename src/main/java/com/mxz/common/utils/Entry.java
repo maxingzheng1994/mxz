@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @XStreamAlias("entry")
 public class Entry {
-    private String id;
-    private String name;
+    private Id id;
+    private Title title;
+    private Content content;
 }

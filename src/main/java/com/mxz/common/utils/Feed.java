@@ -20,8 +20,15 @@ import java.util.List;
 @XStreamAlias("feed")
 public class Feed {
     @XStreamAsAttribute
-    private String xmlns;
+    private String xmlns = "http://www.w3.org/2005/Atom";
     private Title title;
     @XStreamImplicit(itemFieldName="entry")
     private List<Entry> entryList;
+
+    private void setRssName(String rssName) {
+
+    }
+    public void make() {
+        
+    }
 }

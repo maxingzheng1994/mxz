@@ -28,18 +28,8 @@ public class XmlUtils {
     }
 
     public static void main(String[] args) {
-        String str = "<feed xmlns=\"http://www.w3.org/2005/Atom\">\n" +
-                "  <title type=\"text\">博客园_skywang12345</title></feed>";
-        Feed feed = new Feed();
-        feed.setXmlns("sadas");
-        Title title = new Title();
-        title.setText("sadsssssa");
-        feed.setTitle(title);
-        ArrayList<Entry> objects = new ArrayList<>();
-        feed.setEntryList(objects);
+        Feed feed = new FeedBuilder().setRssName("博客园_skywang12345").addNewEntry("http://www.cnblogs.com/skywang12345/p/3711532.html", "sds", "wenzhang").build();
         Object o = XmlUtils.toXml(feed);
-        Object od= XmlUtils.toBean(Feed.class, str);
         System.out.println(o);
-        System.out.println(od);
     }
 }
