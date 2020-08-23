@@ -1,5 +1,8 @@
 package com.mxz.service.rss;
 
+import com.mxz.common.utils.Feed;
+import com.mxz.common.utils.FeedBuilder;
+import com.mxz.common.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
 import com.youbenzi.mdtool.tool.MDTool;
 import org.apache.ibatis.io.Resources;
@@ -65,5 +68,14 @@ public class RssController {
         response.setCharacterEncoding("UTF-8");
 
         response.getWriter().write(sb.toString());
+    }
+
+    @RequestMapping("/rss3")
+    public void rss3(String name, HttpServletResponse response) throws Exception {
+        Feed feed = new FeedBuilder().setRssName("博客园_skywang12345").addNewEntry("http://www.cnblogs.com/skywang12345/p/3711532.html", "sds", "wenzhang").build();
+        Object o = XmlUtils.toXml(feed);
+        response.setCharacterEncoding("UTF-8");
+
+        response.getWriter().write(o.toString());
     }
 }
