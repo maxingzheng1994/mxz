@@ -25,8 +25,9 @@ public class FeedBuilder {
     public FeedBuilder addNewEntry(String link, String name, String contentStr) {
         Id id = new Id(link);
         Title title = new Title(name);
+        Link link1 = new Link(link);
         Content content = new Content(contentStr);
-        Entry entry = new Entry(id, title, content);
+        Entry entry = new Entry(id, title, link1, content);
         List<Entry> entryList = this.feed.getEntryList();
         if (entryList == null || entryList.isEmpty()) {
             entryList = new ArrayList<>();

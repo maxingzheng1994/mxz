@@ -17,5 +17,6 @@ import lombok.NoArgsConstructor;
 public class Entry {
     private Id id;
     private Title title;
+    private Link link;
     private Content content;
 }
