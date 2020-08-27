@@ -3,6 +3,7 @@ package com.mxz.service.rss.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.ClassToInstanceMap;
 import com.google.common.collect.Maps;
+import com.google.common.io.Files;
 import com.mxz.common.utils.MatcherUtils;
 import com.mxz.common.utils.rss.Feed;
 import com.mxz.common.utils.rss.FeedBuilder;
@@ -50,7 +51,9 @@ public class RssController {
         Feed feed = MatcherUtils.blogYuan(name);
         String o = XmlUtils.toXml(feed);
         Rss rssDb = rssService.selectByNameAndType(name, RssConstants.BLOG_YUAN);
-        rssService.removeById(rssDb.getId());
+        if (rssDb != null) {
+            rssService.removeById(rssDb.getId());
+        }
         Rss rss = new Rss();
         rss.setName(name);
         rss.setType(RssConstants.BLOG_YUAN);
@@ -59,5 +62,11 @@ public class RssController {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
         response.getWriter().write(o);
+    }
+
+    public static void main(String[] args) throws IOException {
+        Feed feed = MatcherUtils.blogYuan("skywang12345");
+        String o = XmlUtils.toXml(feed);
+        Files.write(o.getBytes(), new File("D: "));
     }
 }
