@@ -16,4 +16,11 @@ create table  if not exists ARTICLE (
     id int not null primary key auto_increment,
     name varchar(100),
     path varchar(400)
+);
+
+create table  if not exists RSS (
+                                        id int not null primary key auto_increment,
+                                        name varchar(100),
+                                        type varchar(400),
+                                        rssContent TEXT
 )

@@ -26,6 +26,9 @@ public class MatcherUtils {
             "(.*)\n" +
             ".*</span>");
 
+    static Pattern contentP = Pattern.compile("<div.*class=\"c_b_p_desc\">\n" +
+            "(.*)\n" +
+            ".*</div>");
     public static Feed blogYuan(String blogName) {
         BlogYuanVO skywang12345 = new BlogYuanVO(blogName, 40);
         List<String> linkList = skywang12345.getLinkList();
@@ -34,12 +37,13 @@ public class MatcherUtils {
         for (String link : linkList) {
             List<String> url1 = matchAll(link, urlP);
             List<String> name1 = matchAll(link, titleTopP, titleP);
+            List<String> content1 = matchAll(link, contentP);
             if (url1.isEmpty()) {
                 break;
             }
-
+            int cSize = content1.size();
             for (int i = 0; i < url1.size(); i++) {
-                feedBuilder.addNewEntry(url1.get(i), name1.get(i), "");
+                feedBuilder.addNewEntry(url1.get(i), name1.get(i), cSize <= i ? "":content1.get(i));
             }
         }
         return feedBuilder.build();
