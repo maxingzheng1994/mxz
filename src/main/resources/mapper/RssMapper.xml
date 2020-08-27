@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mxz.service.rss.mapper.RssMapper">
+  <resultMap id="BaseResultMap" type="com.mxz.service.rss.model.Rss">
+    <!--@mbg.generated-->
+    <!--@Table RSS-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="RSSCONTENT" jdbcType="LONGVARCHAR" property="rsscontent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, "NAME", "TYPE", RSSCONTENT
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update RSS
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="&quot;NAME&quot; = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.name,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="&quot;TYPE&quot; = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.type,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="RSSCONTENT = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.rsscontent,jdbcType=LONGVARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where ID in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="ID" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into RSS
+    ("NAME", "TYPE", RSSCONTENT)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.name,jdbcType=VARCHAR}, #{item.type,jdbcType=VARCHAR}, #{item.rsscontent,jdbcType=LONGVARCHAR}
+        )
+    </foreach>
+  </insert>
+</mapper>
