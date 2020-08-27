@@ -1,4 +1,4 @@
-package com.mxz.common.utils;
+package com.mxz.common.utils.rss;
 
 import java.util.ArrayList;
 import java.util.List;

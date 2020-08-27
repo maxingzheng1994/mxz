@@ -1,8 +1,8 @@
 package com.mxz.common.utils;
 
+import com.mxz.common.utils.rss.Feed;
+import com.mxz.common.utils.rss.FeedBuilder;
 import com.thoughtworks.xstream.XStream;
-
-import java.util.ArrayList;
 
 /**
  * TODO: 注释.

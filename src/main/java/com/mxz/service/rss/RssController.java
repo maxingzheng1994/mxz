@@ -1,20 +1,18 @@
 package com.mxz.service.rss;
 
-import com.mxz.common.utils.Feed;
-import com.mxz.common.utils.FeedBuilder;
+import com.mxz.common.utils.MatcherUtils;
+import com.mxz.common.utils.rss.Feed;
+import com.mxz.common.utils.rss.FeedBuilder;
 import com.mxz.common.utils.XmlUtils;
-import com.thoughtworks.xstream.XStream;
-import com.youbenzi.mdtool.tool.MDTool;
-import org.apache.ibatis.io.Resources;
+import com.mxz.service.rss.bokeyuan.model.BlogYuanVO;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URL;
+import java.util.List;
 
 /**
  * TODO: 注释.
@@ -70,12 +68,13 @@ public class RssController {
         response.getWriter().write(sb.toString());
     }
 
-    @RequestMapping("/rss3")
-    public void rss3(String name, HttpServletResponse response) throws Exception {
-        Feed feed = new FeedBuilder().setRssName("博客园_skywang12345").addNewEntry("http://www.cnblogs.com/skywang12345/p/3711532.html", "sds", "wenzhang").build();
-        Object o = XmlUtils.toXml(feed);
+    @RequestMapping("/author/{name}")
+    public void rss3(@PathVariable String name, HttpServletResponse response) throws Exception {
+        Feed feed = MatcherUtils.blogYuan(name);
+        String o = XmlUtils.toXml(feed);
         response.setCharacterEncoding("UTF-8");
 
-        response.getWriter().write(o.toString());
+        response.getWriter().write(o);
     }
+
 }

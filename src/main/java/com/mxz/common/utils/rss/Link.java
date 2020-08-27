@@ -1,4 +1,4 @@
-package com.mxz.common.utils;
+package com.mxz.common.utils.rss;
 
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamConverter;

@@ -1,4 +1,4 @@
-package com.mxz.common.utils;
+package com.mxz.common.utils.rss;
 
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import com.thoughtworks.xstream.converters.extended.ToAttributedValueConverter;
@@ -8,17 +8,13 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author mxz
- * @Date 2020/8/23 12:43
+ * @Date 2020/8/23 12:40
  **/
 @XStreamConverter(value= ToAttributedValueConverter.class, strings={"value"})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Content {
-    private String type = "html";
-    private String value;
+public class Id {
 
-    public Content(String value) {
-        this.value = value;
-    }
+    private String value;
 }

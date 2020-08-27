@@ -34,23 +34,6 @@ public final class HttpUtils {
             "(.*)\n" +
             ".*</span>");
 
-    public static void main(String[] args) {
-        List<String> allBuUrl = findAllBuUrl("http://www.cnblogs.com/skywang12345/default.html?page=1", urlP);
-        List<String> allBuUrl2 = findAllBuUrl("http://www.cnblogs.com/skywang12345/default.html?page=1", titleTopP);
-        List<String> allBuUrl3 = findAllBuUrl("http://www.cnblogs.com/skywang12345/default.html?page=1", titleP);
-        System.out.println(allBuUrl2);
-    }
-
-    public static List<String> findAllBuUrl(String url, Pattern urlP) {
-        String s = HttpUtils.get(url);
-        Matcher urlMatcher = urlP.matcher(s);
-        List<String> result = new ArrayList<>();
-        while (urlMatcher.find()) {
-            String group = urlMatcher.group(1);
-            result.add(group);
-        }
-        return result;
-    }
     /**
      * 最大空闲连接数.
      */
