@@ -50,6 +50,7 @@ public class RssController {
     public void rssInit(@PathVariable String name, HttpServletResponse response) throws Exception {
         Feed feed = MatcherUtils.blogYuan(name);
         String o = XmlUtils.toXml(feed);
+        Files.write(o.getBytes(), new File("/data/rss/"+name+".xml"));
         Rss rssDb = rssService.selectByNameAndType(name, RssConstants.BLOG_YUAN);
         if (rssDb != null) {
             rssService.removeById(rssDb.getId());
@@ -67,6 +68,6 @@ public class RssController {
     public static void main(String[] args) throws IOException {
         Feed feed = MatcherUtils.blogYuan("skywang12345");
         String o = XmlUtils.toXml(feed);
-        Files.write(o.getBytes(), new File("D: "));
+        Files.write(o.getBytes(), new File("D:/H2/b.xml"));
     }
 }
