@@ -5,6 +5,6 @@ services:
     image: "mxz/mb25:latest"
     restart: always
     ports:
-      - "8085:8085"
+      - "8085:8089"
     volumes:
       - '/data:/data'
