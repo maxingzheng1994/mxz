@@ -30,7 +30,7 @@ public class MatcherUtils {
             "(.*)\n" +
             ".*</div>");
     public static Feed blogYuan(String blogName) {
-        BlogYuanVO skywang12345 = new BlogYuanVO(blogName, 40);
+        BlogYuanVO skywang12345 = new BlogYuanVO(blogName, 140);
         List<String> linkList = skywang12345.getLinkList();
 
         FeedBuilder feedBuilder = new FeedBuilder().setRssName(blogName);

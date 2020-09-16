@@ -6,9 +6,9 @@ spring:
 #    password: 123456
     driverClassName: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://192.168.1.144:3306/test?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
-    username: root
-    password: #123
+    url: jdbc:mysql://47.107.117.17:3306/test?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
+    username: mb25
+    password: qq741852
 #配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
   jpa:
     hibernate:
