@@ -1,4 +1,4 @@
-package com.mxz.model;
+package com.mxz.service.model;
  
 
 import java.math.BigDecimal;

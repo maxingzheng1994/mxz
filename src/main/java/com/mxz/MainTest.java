@@ -19,7 +19,7 @@ import java.util.Map;
  * @Author mxz
  */
 public class MainTest {
-    public static void main(String[] args) throws IOException {
+    public static void main1(String[] args) throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("mybatisConfig.xml");
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(inputStream);
@@ -33,5 +33,9 @@ public class MainTest {
 //        Employee employee = new Employee(23, "", "", "", new BigDecimal(232));
         sqlSession.commit();
 //        System.out.println("薪资低于10000的员工数："+result.size());
+    }
+
+    public static void main(String[] args) {
+
     }
 }

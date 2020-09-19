@@ -1,16 +1,11 @@
 package com.mxz.service.people.controller;
 
-import com.mxz.model.User;
 import com.mxz.service.people.model.People2;
 import com.mxz.service.people.service.People2Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
