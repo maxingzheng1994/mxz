@@ -1,8 +1,12 @@
-package com.mxz.common.mq;
+package com.mxz.common.mq.common;
 
 import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
 import com.alibaba.rocketmq.client.producer.SendResult;
 import com.alibaba.rocketmq.common.UtilAll;
+import com.alibaba.rocketmq.common.message.Message;
+import com.mxz.common.mq.common.MQAdmin;
+import com.mxz.common.mq.common.MQException;
+import com.mxz.common.mq.common.MQMessageBean;
 
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -11,9 +15,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @Author mxz
  * @Date 2020/9/20 1:34
  **/
-public class MQProducerImpl implements MQAdmin{
+public class MQProducerImpl implements MQAdmin {
     private DefaultMQProducer defaultMQProducer;
     private final AtomicBoolean started = new AtomicBoolean();
+
+    public MQProducerImpl() {
+        super();
+    }
 
     public MQProducerImpl(Properties prop) {
         this.defaultMQProducer = new DefaultMQProducer(prop.getProperty("ProducerId"));

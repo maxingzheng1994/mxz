@@ -1,4 +1,4 @@
-package com.mxz.common.mq;
+package com.mxz.common.mq.props;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -20,12 +20,19 @@ import java.util.Map;
 public class MQConfigProp implements EnvironmentAware {
     private static final String UNKNOWN = "unknown";
     /**
-     * 注册存入数据库系统名.
+     * 注册存入数据库应用名.
      */
     private String appname = UNKNOWN;
-
-    private Map<String, String> consumer = new HashMap<String, String>();
-    private Map<String, MQProducer> producer = new HashMap<>();
+    /**
+     * 生产者配置
+     * com.mxz.mq.producer.
+     */
+    private Map<String, MQProducerProp> producer = new HashMap<>();
+    /**
+     * 消费者配置
+     * com.mxz.mq.producer.
+     */
+    private Map<String, MQConsumerProp> consumer = new HashMap<>();
 
     @Override
     public void setEnvironment(Environment environment) {

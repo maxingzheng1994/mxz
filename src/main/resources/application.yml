@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: qa_common,start,h2_db
+    active: qa_common,start,h2_db,mq
 
   thymeleaf:
     cache: false

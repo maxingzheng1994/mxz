@@ -16,6 +16,8 @@ import lombok.NoArgsConstructor;
 @Data
 @TableName(value = "ARTICLE")
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Article {
     @TableId(value = "ID", type = IdType.AUTO)
     private Integer id;

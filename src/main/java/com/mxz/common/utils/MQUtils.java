@@ -1,6 +1,6 @@
 package com.mxz.common.utils;
 
-import com.mxz.common.mq.MQProducer;
+import com.mxz.common.mq.example.MQProducer;
 
 /**
  *
